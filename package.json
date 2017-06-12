@@ -2,9 +2,10 @@
   "name": "redux-react-rxjs",
   "version": "0.1.0",
   "description": "Rxjs based Redux style state management for React",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register -r ./test/setup.js ./test"
+    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-register -r ./test/setup.js ./test",
+    "build": "babel index.js --out-file dist/index"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "rxjs": "^5.4.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
