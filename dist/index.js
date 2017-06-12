@@ -5,24 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.combineReducers = exports.RxStateProvider = exports.connect = exports.createActions = exports.createState = undefined;
 
-var _index = require('/Users/jansesun/github/redux-react-rxjs/node_modules/redbox-react/lib/index.js');
-
-var _index2 = _interopRequireDefault(_index);
-
-var _index3 = require('/Users/jansesun/github/redux-react-rxjs/node_modules/react-transform-catch-errors/lib/index.js');
-
-var _index4 = _interopRequireDefault(_index3);
-
-var _react2 = require('react');
-
-var _react3 = _interopRequireDefault(_react2);
-
-var _index5 = require('/Users/jansesun/github/redux-react-rxjs/node_modules/react-transform-hmr/lib/index.js');
-
-var _index6 = _interopRequireDefault(_index5);
-
-var _class2, _temp2;
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -32,6 +14,10 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 var _Rx = require('rxjs/Rx');
 
 var _Rx2 = _interopRequireDefault(_Rx);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
 
 var _propTypes = require('prop-types');
 
@@ -48,36 +34,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _components = {
-  Connect: {
-    displayName: 'Connect',
-    isInFunction: true
-  },
-  RxStateProvider: {
-    displayName: 'RxStateProvider'
-  }
-};
-
-var _UsersJansesunGithubReduxReactRxjsNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
-  filename: 'index.js',
-  components: _components,
-  locals: [module],
-  imports: [_react3.default]
-});
-
-var _UsersJansesunGithubReduxReactRxjsNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
-  filename: 'index.js',
-  components: _components,
-  locals: [],
-  imports: [_react3.default, _index2.default]
-});
-
-function _wrapComponent(id) {
-  return function (Component) {
-    return _UsersJansesunGithubReduxReactRxjsNode_modulesReactTransformHmrLibIndexJs2(_UsersJansesunGithubReduxReactRxjsNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
-  };
-}
 
 var createState = exports.createState = function createState(reducer$) {
   var initialState$ = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _Rx2.default.Observable.of({});
@@ -109,7 +65,7 @@ var connect = exports.connect = function connect() {
   return function (WrappedComponent) {
     var _class, _temp;
 
-    return _wrapComponent('Connect')((_temp = _class = function (_Component) {
+    return _temp = _class = function (_Component) {
       _inherits(Connect, _Component);
 
       function Connect() {
@@ -131,18 +87,18 @@ var connect = exports.connect = function connect() {
       }, {
         key: 'render',
         value: function render() {
-          return _react3.default.createElement(WrappedComponent, _extends({}, this.state, this.props));
+          return _react2.default.createElement(WrappedComponent, _extends({}, this.state, this.props));
         }
       }]);
 
       return Connect;
-    }(_react2.Component), _class.contextTypes = {
+    }(_react.Component), _class.contextTypes = {
       state$: _propTypes2.default.object.isRequired
-    }, _temp));
+    }, _temp;
   };
 };
 
-var RxStateProvider = exports.RxStateProvider = _wrapComponent('RxStateProvider')((_temp2 = _class2 = function (_Component2) {
+var RxStateProvider = exports.RxStateProvider = function (_Component2) {
   _inherits(RxStateProvider, _Component2);
 
   function RxStateProvider() {
@@ -166,12 +122,14 @@ var RxStateProvider = exports.RxStateProvider = _wrapComponent('RxStateProvider'
   }]);
 
   return RxStateProvider;
-}(_react2.Component), _class2.propTypes = {
-  state$: _propTypes2.default.object.isRequired
-}, _class2.childContextTypes = {
-  state$: _propTypes2.default.object.isRequired
-}, _temp2));
+}(_react.Component);
 
+RxStateProvider.propTypes = {
+  state$: _propTypes2.default.object.isRequired
+};
+RxStateProvider.childContextTypes = {
+  state$: _propTypes2.default.object.isRequired
+};
 ;
 var combineReducers = exports.combineReducers = function combineReducers(reducers$) {
   var _Rx$Observable;
